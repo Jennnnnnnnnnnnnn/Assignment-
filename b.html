@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY CLASSMATES</title>
+<style>
+    body {
+        background-color: grey;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        background-color: #aquamarine; 
+        color: magenta;
+        padding: 15px;
+        text-align: center;
+        margin-top: 0; 
+        margin-bottom: 20px; 
+        border-radius: 8px; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    }
+
+    #buttonContainer {
+        display: flex;
+        gap: 2in; 
+    }
+
+    #imageContainer {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 50%;
+    }
+
+    button {
+        color: skyblue;
+        border: none;
+        padding: 15px 20px; 
+        cursor: pointer;
+        display: block; 
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    }
+
+    #boysButton {
+        background-color: blue;
+    }
+
+    #girlsButton {
+        background-color: deeppink;
+    }
+
+    #imageContainer span {
+        background-color: FF00FF; 
+        color: magenta; 
+        padding: 5px 10px; 
+        border-radius: 5px; 
+    }
+</style>
+</head>
+<body>
+
+<h2>MY CLASSMATES</h2>
+
+<div id="buttonContainer">
+    <button id="boysButton">Boys</button>
+    <button id="girlsButton">Girls</button>
+</div>
+
+<div id="imageContainer"></div>
+
+<script>
+var boyImages = [
+    { src: "cleemark.jpg", name: "CLEEMARK PICARDAL" },
+    { src: "angelo.jpg", name: "MARK ANGELO ACUPADIO" },
+    { src: "zul.jpg", name: "ZUL NUGUIT" },
+    { src: "bella.jpg", name: "Alfredo Lucapa" },
+    { src: "patchu.jpg", name: "PATRICK LIBANAN" }
+];
+
+var girlImages = [
+    { src: "romilyn.jpg", name: "ROMILYN PONTICA" },
+    { src: "Mary ann.jpg", name: "MARY ANN SUGALAN" },
+    { src: "rosgie.jpg", name: "ROSCO ROSGIE" },
+    { src: "jane.jpg", name: "YULAS MARY JANE" },
+    { src: "joana.jpg", name: "RAVAS JOANA" },
+];
+
+var boyIndex = 0;
+var girlIndex = 0;
+
+document.getElementById("boysButton").addEventListener("click", function() {
+    var image = boyImages[boyIndex];
+    var imageUrl = image.src;
+    var name = image.name;
+    document.getElementById("imageContainer").innerHTML = `<img src="${imageUrl}" alt="Boy Image"><br><span>${name}</span>`;
+    boyIndex = (boyIndex + 1) % boyImages.length;
+});
+
+document.getElementById("girlsButton").addEventListener("click", function() {
+    var image = girlImages[girlIndex];
+    var imageUrl = image.src;
+    var name = image.name;
+    document.getElementById("imageContainer").innerHTML = `<img src="${imageUrl}" alt="Girl Image"><br><span>${name}</span>`;
+    girlIndex = (girlIndex + 1) % girlImages.length;
+});
+</script>
+
+</body>
+</html>
